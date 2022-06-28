@@ -1,0 +1,5 @@
+disabled_ruls:
+- line_length
+ 
+excluded:
+- Pods
