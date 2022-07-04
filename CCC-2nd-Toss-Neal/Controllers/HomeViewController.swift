@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .tossBackgroundColor
         setupMainLayout()
         self.navigationItem.leftBarButtonItem = makeleftBaritem()
         self.navigationItem.rightBarButtonItems = makeRightBaritems()
@@ -36,7 +37,7 @@ extension HomeViewController {
             let button = UIButton()
             var config = UIButton.Configuration.plain()
             config.title = "toss"
-            config.baseForegroundColor = .gray
+            config.baseForegroundColor = .tossTintColor
             config.image = UIImage.init(systemName: "dollarsign.circle.fill")
             config.imagePlacement = .leading
             button.configuration = config
@@ -49,19 +50,19 @@ extension HomeViewController {
     private func makeRightBaritems() -> [UIBarButtonItem] {
         let addButton: UIBarButtonItem = {
             let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(buttonPressed(_:)))
-            button.tintColor = .gray
+            button.tintColor = .tossTintColor
             return button
         }()
         let bellButton: UIBarButtonItem = {
             let imgIcon = UIImage(systemName: "bell.fill")
             let button = UIBarButtonItem(image: imgIcon, style: .plain, target: self, action: #selector(buttonPressed(_:)))
-            button.tintColor = .gray
+            button.tintColor = .tossTintColor
             return button
         }()
         let chatButton: UIBarButtonItem = {
             let imgIcon = UIImage(systemName: "message.fill")
             let button = UIBarButtonItem(image: imgIcon, style: .plain, target: self, action: #selector(buttonPressed(_:)))
-            button.tintColor = .gray
+            button.tintColor = .tossTintColor
             return button
         }()
         return [bellButton, chatButton, addButton]

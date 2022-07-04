@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		765C4F3E2873894900EC9450 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765C4F3D2873894900EC9450 /* Color+Extension.swift */; };
 		76DFEB90286BC50D00185A5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DFEB8F286BC50D00185A5D /* AppDelegate.swift */; };
 		76DFEB92286BC50D00185A5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DFEB91286BC50D00185A5D /* SceneDelegate.swift */; };
 		76DFEB99286BC50F00185A5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76DFEB98286BC50F00185A5D /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		765C4F3D2873894900EC9450 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		76DFEB8C286BC50D00185A5D /* CCC-2nd-Toss-Neal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CCC-2nd-Toss-Neal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76DFEB8F286BC50D00185A5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76DFEB91286BC50D00185A5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +51,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		765C4F3B2873892D00EC9450 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				765C4F3C2873893500EC9450 /* Extension */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		765C4F3C2873893500EC9450 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				765C4F3D2873894900EC9450 /* Color+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		76DFEB83286BC50D00185A5D = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +88,7 @@
 		76DFEB8E286BC50D00185A5D /* CCC-2nd-Toss-Neal */ = {
 			isa = PBXGroup;
 			children = (
+				765C4F3B2873892D00EC9450 /* Resources */,
 				76DFEBC32871796C00185A5D /* Controllers */,
 				76DFEB8F286BC50D00185A5D /* AppDelegate.swift */,
 				76DFEBAD286D209200185A5D /* MainTabBarController.swift */,
@@ -187,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76DFEBC52871799300185A5D /* HomeViewController.swift in Sources */,
+				765C4F3E2873894900EC9450 /* Color+Extension.swift in Sources */,
 				76DFEBC9287179DA00185A5D /* TransferViewController.swift in Sources */,
 				76DFEBC7287179B500185A5D /* BenefitViewController.swift in Sources */,
 				76DFEB90286BC50D00185A5D /* AppDelegate.swift in Sources */,
