@@ -14,6 +14,17 @@ class HomeViewController: UIViewController {
         textLabel.textAlignment = .center
         return textLabel
     }()
+    
+    private let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 140, height: 200)
+        layout.scrollDirection = .horizontal
+//        왜 zero를 해주는걸까?
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        return collectionView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .tossBackgroundColor
@@ -22,13 +33,17 @@ class HomeViewController: UIViewController {
         self.navigationItem.rightBarButtonItems = makeRightBaritems()
     }
     private func setupMainLayout() {
-        view.addSubview(textLabel)
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        textLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
-        textLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: UIScreen.main.bounds.height / 3).isActive = true
-        textLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
-        textLabel.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        view.addSubview(collectionView)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.frame = view.bounds
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
+        collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: UIScreen.main.bounds.height / 3).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
+        collectionView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        collectionView.backgroundColor = .tossBackgroundColor
     }
 }
 extension HomeViewController {
@@ -69,5 +84,17 @@ extension HomeViewController {
     }
     @objc private func buttonPressed(_ sender: Any) {
         print("Button pressed")
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        cell.backgroundColor = .white
+        cell.layer.cornerRadius = 15.0
+        return cell
     }
 }
