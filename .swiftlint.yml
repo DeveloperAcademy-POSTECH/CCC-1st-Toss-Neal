@@ -1,4 +1,4 @@
-disabled_ruls:
+disabled_rules:
 - line_length
  
 excluded:
