@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(InquiryCollectionViewCell.self, forCellWithReuseIdentifier: "inquiryCell")
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom:0, right: 0)
         return collectionView
     }()
     override func viewDidLoad() {
@@ -32,7 +33,7 @@ class HomeViewController: UIViewController {
         inquiryCollectionView.frame = view.bounds
         inquiryCollectionView.translatesAutoresizingMaskIntoConstraints = false
         inquiryCollectionView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        inquiryCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
+        inquiryCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         inquiryCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: UIScreen.main.bounds.height / 3).isActive = true
         inquiryCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
         inquiryCollectionView.heightAnchor.constraint(equalToConstant: 200).isActive = true
