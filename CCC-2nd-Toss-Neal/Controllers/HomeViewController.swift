@@ -8,23 +8,16 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    private let textLabel: UILabel = {
-        let textLabel = UILabel()
-        textLabel.text = "홈"
-        textLabel.textAlignment = .center
-        return textLabel
-    }()
-    
-    private let collectionView: UICollectionView = {
+    private let inquiryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 140, height: 200)
+        layout.itemSize = CGSize(width: 120, height: 120)
         layout.scrollDirection = .horizontal
 //        왜 zero를 해주는걸까?
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.register(InquiryCollectionViewCell.self, forCellWithReuseIdentifier: "inquiryCell")
         return collectionView
     }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .tossBackgroundColor
@@ -33,17 +26,17 @@ class HomeViewController: UIViewController {
         self.navigationItem.rightBarButtonItems = makeRightBaritems()
     }
     private func setupMainLayout() {
-        view.addSubview(collectionView)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.frame = view.bounds
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
-        collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: UIScreen.main.bounds.height / 3).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
-        collectionView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        collectionView.backgroundColor = .tossBackgroundColor
+        view.addSubview(inquiryCollectionView)
+        inquiryCollectionView.delegate = self
+        inquiryCollectionView.dataSource = self
+        inquiryCollectionView.frame = view.bounds
+        inquiryCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        inquiryCollectionView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        inquiryCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
+        inquiryCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: UIScreen.main.bounds.height / 3).isActive = true
+        inquiryCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
+        inquiryCollectionView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        inquiryCollectionView.backgroundColor = .tossBackgroundColor
     }
 }
 extension HomeViewController {
@@ -56,7 +49,6 @@ extension HomeViewController {
             config.image = UIImage.init(systemName: "dollarsign.circle.fill")
             config.imagePlacement = .leading
             button.configuration = config
-
             let item = UIBarButtonItem(customView: button)
             return item
         }()
@@ -89,10 +81,13 @@ extension HomeViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return dummyData.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "inquiryCell", for: indexPath) as? InquiryCollectionViewCell else {
+            fatalError()
+        }
+        cell.configure(dummyData[indexPath.row])
         cell.backgroundColor = .white
         cell.layer.cornerRadius = 15.0
         return cell
