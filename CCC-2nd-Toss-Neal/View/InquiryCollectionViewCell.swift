@@ -54,7 +54,7 @@ class InquiryCollectionViewCell: UICollectionViewCell {
         
         subTitle.anchor(top: contentView.safeAreaLayoutGuide.topAnchor, right: nil, bottom: nil, left: contentView.safeAreaLayoutGuide.leftAnchor, padding: .init(top: 10, left: 10, bottom: 0, right: 0), size: .init(width: 100, height: 12))
         mainTitle.anchor(top: subTitle.safeAreaLayoutGuide.bottomAnchor, right: nil, bottom: nil, left: contentView.safeAreaLayoutGuide.leftAnchor, padding: .init(top: 5, left: 10, bottom: 0, right: 0), size: .init(width: 100, height: 40))
-        imageIcon.anchor(top: mainTitle.bottomAnchor, right: contentView.safeAreaLayoutGuide.rightAnchor, bottom: nil, left: nil, padding: .init(top: 5, left: 0, bottom: 0, right: 20), size: .init(width: 30, height: 30))
+        imageIcon.anchor(top: nil, right: contentView.safeAreaLayoutGuide.rightAnchor, bottom: nil, left: nil, padding: .init(top: 5, left: 0, bottom: 0, right: 20), size: .init(width: 30, height: 30))
     }
     
     func configure(with data: InquiryViewModel) {
