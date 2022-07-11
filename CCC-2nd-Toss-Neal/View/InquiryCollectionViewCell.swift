@@ -45,7 +45,8 @@ class InquiryCollectionViewCell: UICollectionViewCell {
         }
         subTitle.anchor(top: contentView.safeAreaLayoutGuide.topAnchor, right: nil, bottom: nil, left: contentView.safeAreaLayoutGuide.leftAnchor, padding: .init(top: 10, left: 10, bottom: 0, right: 0), size: .init(width: 100, height: 12))
         mainTitle.anchor(top: subTitle.safeAreaLayoutGuide.bottomAnchor, right: nil, bottom: nil, left: contentView.safeAreaLayoutGuide.leftAnchor, padding: .init(top: 5, left: 10, bottom: 0, right: 0), size: .init(width: 100, height: 40))
-        imageIcon.anchor(top: mainTitle.bottomAnchor, right: contentView.safeAreaLayoutGuide.rightAnchor, bottom: nil, left: nil, padding: .init(top: 5, left: 0, bottom: 0, right: 20), size: .init(width: 30, height: 30))
+//        TODO: Greater than 
+        imageIcon.anchor(top: mainTitle.bottomAnchor, right: contentView.safeAreaLayoutGuide.rightAnchor, bottom: nil, left: nil, padding: .init(top: 0, left: 0, bottom: 20, right: 20), size: .init(width: 30, height: 30))
     }
     func configure(_ data: CellData) {
         self.subTitle.text = data.subtitle
@@ -55,32 +56,4 @@ class InquiryCollectionViewCell: UICollectionViewCell {
         }
     }
 
-}
-extension UIView {
-    func anchor(top: NSLayoutYAxisAnchor?,
-                right: NSLayoutXAxisAnchor?,
-                bottom: NSLayoutYAxisAnchor?,
-                left: NSLayoutXAxisAnchor?,
-                padding: UIEdgeInsets = .zero,
-                size: CGSize = .zero) {
-        translatesAutoresizingMaskIntoConstraints = false
-        if let top = top {
-            topAnchor.constraint(equalTo: top, constant: padding.top).isActive = true
-        }
-        if let right = right {
-            rightAnchor.constraint(equalTo: right, constant: -padding.right).isActive = true
-        }
-        if let bottom = bottom {
-            bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom).isActive = true
-        }
-        if let left = left {
-            leftAnchor.constraint(equalTo: left, constant: padding.left).isActive = true
-        }
-        if size.width != 0 {
-            widthAnchor.constraint(equalToConstant: size.width).isActive = true
-        }
-        if size.height != 0 {
-            heightAnchor.constraint(equalToConstant: size.height).isActive = true
-        }
-    }
 }
