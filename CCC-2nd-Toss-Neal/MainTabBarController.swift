@@ -27,6 +27,8 @@ final class MainTabBarController: UITabBarController {
         vc4.tabBarItem.title = "주식"
         vc5.tabBarItem.image = UIImage(systemName: "line.3.horizontal")
         vc5.tabBarItem.title = "전체"
+        
+        tabBar.tintColor = .label
         setViewControllers([vc1, vc2, vc3, vc4, vc5], animated: true)
     }
 }
