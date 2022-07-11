@@ -10,6 +10,9 @@
 		765C4F3E2873894900EC9450 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765C4F3D2873894900EC9450 /* Color+Extension.swift */; };
 		765C4F412873919200EC9450 /* InquiryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765C4F402873919200EC9450 /* InquiryCollectionViewCell.swift */; };
 		765C4F482873BBC400EC9450 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765C4F472873BBC400EC9450 /* CellData.swift */; };
+		76B7A4572873E94A00C58829 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B7A4562873E94A00C58829 /* UIView+Extension.swift */; };
+		76B7A4592873EAF400C58829 /* AssetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B7A4582873EAF400C58829 /* AssetCollectionViewCell.swift */; };
+		76B7A45B2873EC3000C58829 /* AssetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B7A45A2873EC3000C58829 /* AssetTableViewCell.swift */; };
 		76DFEB90286BC50D00185A5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DFEB8F286BC50D00185A5D /* AppDelegate.swift */; };
 		76DFEB92286BC50D00185A5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DFEB91286BC50D00185A5D /* SceneDelegate.swift */; };
 		76DFEB99286BC50F00185A5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76DFEB98286BC50F00185A5D /* Assets.xcassets */; };
@@ -28,6 +31,9 @@
 		765C4F3D2873894900EC9450 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		765C4F402873919200EC9450 /* InquiryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InquiryCollectionViewCell.swift; sourceTree = "<group>"; };
 		765C4F472873BBC400EC9450 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
+		76B7A4562873E94A00C58829 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		76B7A4582873EAF400C58829 /* AssetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCollectionViewCell.swift; sourceTree = "<group>"; };
+		76B7A45A2873EC3000C58829 /* AssetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTableViewCell.swift; sourceTree = "<group>"; };
 		76DFEB8C286BC50D00185A5D /* CCC-2nd-Toss-Neal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CCC-2nd-Toss-Neal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76DFEB8F286BC50D00185A5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76DFEB91286BC50D00185A5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				765C4F3D2873894900EC9450 /* Color+Extension.swift */,
+				76B7A4562873E94A00C58829 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -75,6 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				765C4F402873919200EC9450 /* InquiryCollectionViewCell.swift */,
+				76B7A4582873EAF400C58829 /* AssetCollectionViewCell.swift */,
+				76B7A45A2873EC3000C58829 /* AssetTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -227,12 +236,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76B7A45B2873EC3000C58829 /* AssetTableViewCell.swift in Sources */,
 				765C4F412873919200EC9450 /* InquiryCollectionViewCell.swift in Sources */,
 				76DFEBC52871799300185A5D /* HomeViewController.swift in Sources */,
 				765C4F3E2873894900EC9450 /* Color+Extension.swift in Sources */,
 				76DFEBC9287179DA00185A5D /* TransferViewController.swift in Sources */,
 				76DFEBC7287179B500185A5D /* BenefitViewController.swift in Sources */,
 				76DFEB90286BC50D00185A5D /* AppDelegate.swift in Sources */,
+				76B7A4572873E94A00C58829 /* UIView+Extension.swift in Sources */,
+				76B7A4592873EAF400C58829 /* AssetCollectionViewCell.swift in Sources */,
 				76DFEBAE286D209200185A5D /* MainTabBarController.swift in Sources */,
 				76DFEB92286BC50D00185A5D /* SceneDelegate.swift in Sources */,
 				76DFEBCB28717A0300185A5D /* StockViewController.swift in Sources */,
