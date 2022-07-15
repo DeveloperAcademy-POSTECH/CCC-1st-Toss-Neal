@@ -17,20 +17,17 @@ class HomeViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 360, height: 240)
         layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 30
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(AssetCollectionViewCell.self, forCellWithReuseIdentifier: AssetCollectionViewCell.identifier)
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
         return collectionView
     }()
     
-    private let contentView = UIView()
-    private let scrollView = UIScrollView()
-    
     private let inquiryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 120, height: 120)
         layout.scrollDirection = .horizontal
-        //        왜 zero를 해주는걸까?
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(InquiryCollectionViewCell.self, forCellWithReuseIdentifier: InquiryCollectionViewCell.identifier)
@@ -141,11 +138,10 @@ extension HomeViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //        return dummyData.count
         if collectionView == self.inquiryCollectionView {
             return dummyData.count
         }
-        return 1
+        return 2
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.inquiryCollectionView {
