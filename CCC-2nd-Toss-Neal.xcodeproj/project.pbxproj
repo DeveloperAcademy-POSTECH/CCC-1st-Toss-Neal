@@ -12,6 +12,9 @@
 		765C4F482873BBC400EC9450 /* Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765C4F472873BBC400EC9450 /* Extra.swift */; };
 		76A6241C287CF3060099A7CE /* AssetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A6241A287CF3060099A7CE /* AssetTableViewCell.swift */; };
 		76A6241D287CF3060099A7CE /* AssetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A6241B287CF3060099A7CE /* AssetCollectionViewCell.swift */; };
+		76A6241F287D3E9D0099A7CE /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A6241E287D3E9D0099A7CE /* Asset.swift */; };
+		76A62421287D3F2E0099A7CE /* AssetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A62420287D3F2E0099A7CE /* AssetViewModel.swift */; };
+		76A62428287DAC160099A7CE /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A62427287DAC160099A7CE /* LabelView.swift */; };
 		76B7A495287C3D5400C58829 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B7A494287C3D5400C58829 /* UIView+Extension.swift */; };
 		76B7A49D287C428700C58829 /* InquiryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B7A49C287C428700C58829 /* InquiryViewModel.swift */; };
 		76DFEB90286BC50D00185A5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DFEB8F286BC50D00185A5D /* AppDelegate.swift */; };
@@ -34,6 +37,9 @@
 		765C4F472873BBC400EC9450 /* Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extra.swift; sourceTree = "<group>"; };
 		76A6241A287CF3060099A7CE /* AssetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTableViewCell.swift; sourceTree = "<group>"; };
 		76A6241B287CF3060099A7CE /* AssetCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetCollectionViewCell.swift; sourceTree = "<group>"; };
+		76A6241E287D3E9D0099A7CE /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+		76A62420287D3F2E0099A7CE /* AssetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewModel.swift; sourceTree = "<group>"; };
+		76A62427287DAC160099A7CE /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		76B7A494287C3D5400C58829 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		76B7A49C287C428700C58829 /* InquiryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InquiryViewModel.swift; sourceTree = "<group>"; };
 		76DFEB8C286BC50D00185A5D /* CCC-2nd-Toss-Neal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CCC-2nd-Toss-Neal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +92,7 @@
 				76A6241B287CF3060099A7CE /* AssetCollectionViewCell.swift */,
 				76A6241A287CF3060099A7CE /* AssetTableViewCell.swift */,
 				765C4F402873919200EC9450 /* InquiryCollectionViewCell.swift */,
+				76A62427287DAC160099A7CE /* LabelView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -94,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				765C4F472873BBC400EC9450 /* Extra.swift */,
+				76A6241E287D3E9D0099A7CE /* Asset.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -115,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				76B7A49C287C428700C58829 /* InquiryViewModel.swift */,
+				76A62420287D3F2E0099A7CE /* AssetViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -261,10 +270,13 @@
 				76DFEBC52871799300185A5D /* HomeViewController.swift in Sources */,
 				765C4F3E2873894900EC9450 /* Color+Extension.swift in Sources */,
 				76DFEBC9287179DA00185A5D /* TransferViewController.swift in Sources */,
+				76A6241F287D3E9D0099A7CE /* Asset.swift in Sources */,
 				76DFEBC7287179B500185A5D /* BenefitViewController.swift in Sources */,
 				76DFEB90286BC50D00185A5D /* AppDelegate.swift in Sources */,
 				76B7A495287C3D5400C58829 /* UIView+Extension.swift in Sources */,
 				76DFEBAE286D209200185A5D /* MainTabBarController.swift in Sources */,
+				76A62428287DAC160099A7CE /* LabelView.swift in Sources */,
+				76A62421287D3F2E0099A7CE /* AssetViewModel.swift in Sources */,
 				76DFEB92286BC50D00185A5D /* SceneDelegate.swift in Sources */,
 				76B7A49D287C428700C58829 /* InquiryViewModel.swift in Sources */,
 				76DFEBCB28717A0300185A5D /* StockViewController.swift in Sources */,
