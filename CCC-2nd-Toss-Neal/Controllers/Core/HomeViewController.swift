@@ -9,10 +9,18 @@ import UIKit
 
 // TODO: Depoble
 
+enum Sections: Int {
+    case Asset = 0
+    case Inquiry = 1
+}
+
 class HomeViewController: UIViewController {
     private let dummyData: [Extra] = [Extra(subtitle: "최대 15만원", mainTitle: "카드 혜택받기 ", imageName: "card"), Extra(subtitle: "요즘 인기", mainTitle: "오늘의 머니팁", imageName: "light"), Extra(subtitle: "집 있다면", mainTitle: "내 부동산 시세조회", imageName: "house"), Extra(subtitle: "인기", mainTitle: "더보기", imageName: "")]
     
     private let dummyString: [String] = ["123", "456", "789"]
+    
+    private let sectionTitles: [String] = ["자산", "조회"]
+    
     private let assetCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 360, height: 240)
@@ -20,19 +28,11 @@ class HomeViewController: UIViewController {
         layout.minimumLineSpacing = 30
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(AssetCollectionViewCell.self, forCellWithReuseIdentifier: AssetCollectionViewCell.identifier)
-        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
-        return collectionView
-    }()
-    
-    private let inquiryCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 120, height: 120)
-        layout.scrollDirection = .horizontal
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.register(InquiryCollectionViewCell.self, forCellWithReuseIdentifier: InquiryCollectionViewCell.identifier)
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         
+        collectionView.register(HorizontalCollectionViewCell.self, forCellWithReuseIdentifier: HorizontalCollectionViewCell.identifier)
+
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
         return collectionView
     }()
     
@@ -54,38 +54,26 @@ class HomeViewController: UIViewController {
     
     private func setupMainLayout() {
         view.addSubview(assetCollectionView)
-        view.addSubview(inquiryCollectionView)
+//        view.addSubview(inquiryCollectionView)
 
         assetCollectionView.delegate = self
         assetCollectionView.dataSource = self
-        inquiryCollectionView.delegate = self
-        inquiryCollectionView.dataSource = self
+//        inquiryCollectionView.delegate = self
+//        inquiryCollectionView.dataSource = self
         assetCollectionView.frame = view.bounds
-        inquiryCollectionView.frame = view.bounds
+//        inquiryCollectionView.frame = view.bounds
         
-        assetCollectionView.translatesAutoresizingMaskIntoConstraints = false
+//        assetCollectionView.translatesAutoresizingMaskIntoConstraints = false
         assetCollectionView.layer.cornerRadius = 15.0
         assetCollectionView.backgroundColor = .tossBackgroundColor
         
         let assetCollectionViewConstraints = [
             assetCollectionView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            assetCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            assetCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            assetCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            assetCollectionView.heightAnchor.constraint(equalTo: assetCollectionView.widthAnchor)
+            assetCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            assetCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            assetCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            assetCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ]
-        
-        inquiryCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        inquiryCollectionView.backgroundColor = .tossBackgroundColor
-        let inquiryCollectionViewConstraints = [
-            inquiryCollectionView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            inquiryCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
-            inquiryCollectionView.topAnchor.constraint(equalTo: assetCollectionView.bottomAnchor, constant: 20),
-            inquiryCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
-            inquiryCollectionView.heightAnchor.constraint(equalToConstant: 120)
-        ]
-        
-        NSLayoutConstraint.activate(inquiryCollectionViewConstraints)
         NSLayoutConstraint.activate(assetCollectionViewConstraints)
     }
 }
@@ -138,30 +126,34 @@ extension HomeViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == self.inquiryCollectionView {
-            return dummyData.count
+        switch section {
+        case Sections.Asset.rawValue:
+            return 2
+        default:
+            return 1
         }
-        return 2
     }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return sectionTitles.count
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.inquiryCollectionView {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InquiryCollectionViewCell.identifier, for: indexPath) as? InquiryCollectionViewCell else {
-                fatalError()
-            }
-            let model = dummyData[indexPath.row]
-            cell.configure(with: InquiryViewModel(subtitle: model.subtitle, mainTitle: model.mainTitle, imageName: model.imageName))
-            cell.backgroundColor = .white
-            cell.layer.cornerRadius = 15.0
-            return cell
-        } else if collectionView == self.assetCollectionView {
+        switch indexPath.section {
+        case Sections.Asset.rawValue:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AssetCollectionViewCell.identifier, for: indexPath) as? AssetCollectionViewCell else {
-                fatalError()
+                return UICollectionViewCell()
             }
-            
             cell.backgroundColor = .white
             cell.layer.cornerRadius = 15
             return cell
+        case Sections.Inquiry.rawValue:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalCollectionViewCell.identifier, for: indexPath) as? HorizontalCollectionViewCell else {
+                            fatalError()
+                        }
+            return cell
+        default:
+            return UICollectionViewCell()
         }
-        return UICollectionViewCell()
     }
+    
 }
