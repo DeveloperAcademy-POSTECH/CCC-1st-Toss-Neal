@@ -10,6 +10,8 @@
 		765C4F3E2873894900EC9450 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765C4F3D2873894900EC9450 /* Color+Extension.swift */; };
 		765C4F412873919200EC9450 /* InquiryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765C4F402873919200EC9450 /* InquiryCollectionViewCell.swift */; };
 		765C4F482873BBC400EC9450 /* Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765C4F472873BBC400EC9450 /* Extra.swift */; };
+		76748222288183C000DBA413 /* HorizontalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76748221288183C000DBA413 /* HorizontalCollectionViewCell.swift */; };
+		7674822428819E5000DBA413 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7674822328819E5000DBA413 /* UIScreen+Extension.swift */; };
 		76A6241C287CF3060099A7CE /* AssetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A6241A287CF3060099A7CE /* AssetTableViewCell.swift */; };
 		76A6241D287CF3060099A7CE /* AssetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A6241B287CF3060099A7CE /* AssetCollectionViewCell.swift */; };
 		76A6241F287D3E9D0099A7CE /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A6241E287D3E9D0099A7CE /* Asset.swift */; };
@@ -35,6 +37,8 @@
 		765C4F3D2873894900EC9450 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		765C4F402873919200EC9450 /* InquiryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InquiryCollectionViewCell.swift; sourceTree = "<group>"; };
 		765C4F472873BBC400EC9450 /* Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extra.swift; sourceTree = "<group>"; };
+		76748221288183C000DBA413 /* HorizontalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCollectionViewCell.swift; sourceTree = "<group>"; };
+		7674822328819E5000DBA413 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 		76A6241A287CF3060099A7CE /* AssetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTableViewCell.swift; sourceTree = "<group>"; };
 		76A6241B287CF3060099A7CE /* AssetCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetCollectionViewCell.swift; sourceTree = "<group>"; };
 		76A6241E287D3E9D0099A7CE /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 			children = (
 				765C4F3D2873894900EC9450 /* Color+Extension.swift */,
 				76B7A494287C3D5400C58829 /* UIView+Extension.swift */,
+				7674822328819E5000DBA413 /* UIScreen+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -93,6 +98,7 @@
 				76A6241A287CF3060099A7CE /* AssetTableViewCell.swift */,
 				765C4F402873919200EC9450 /* InquiryCollectionViewCell.swift */,
 				76A62427287DAC160099A7CE /* LabelView.swift */,
+				76748221288183C000DBA413 /* HorizontalCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -274,6 +280,7 @@
 				76DFEBC7287179B500185A5D /* BenefitViewController.swift in Sources */,
 				76DFEB90286BC50D00185A5D /* AppDelegate.swift in Sources */,
 				76B7A495287C3D5400C58829 /* UIView+Extension.swift in Sources */,
+				76748222288183C000DBA413 /* HorizontalCollectionViewCell.swift in Sources */,
 				76DFEBAE286D209200185A5D /* MainTabBarController.swift in Sources */,
 				76A62428287DAC160099A7CE /* LabelView.swift in Sources */,
 				76A62421287D3F2E0099A7CE /* AssetViewModel.swift in Sources */,
@@ -282,6 +289,7 @@
 				76DFEBCB28717A0300185A5D /* StockViewController.swift in Sources */,
 				76DFEBCD28717A0F00185A5D /* TotalViewController.swift in Sources */,
 				765C4F482873BBC400EC9450 /* Extra.swift in Sources */,
+				7674822428819E5000DBA413 /* UIScreen+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
