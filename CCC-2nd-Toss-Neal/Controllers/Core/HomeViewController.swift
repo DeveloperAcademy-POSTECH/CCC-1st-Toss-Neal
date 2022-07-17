@@ -26,10 +26,7 @@ class HomeViewController: UIViewController {
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(AssetCollectionViewCell.self, forCellWithReuseIdentifier: AssetCollectionViewCell.identifier)
-        
         collectionView.register(HorizontalCollectionViewCell.self, forCellWithReuseIdentifier: HorizontalCollectionViewCell.identifier)
-
-//        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         return collectionView
     }()
     
@@ -122,7 +119,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case Sections.Asset.rawValue:
-            return 2
+            return 3
         default:
             return 1
         }
@@ -155,9 +152,9 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         switch section {
         case Sections.Asset.rawValue:
-            return UIEdgeInsets(top: 10, left: 20, bottom: 0, right: 20)
+            return UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         case Sections.Inquiry.rawValue:
-            return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+            return UIEdgeInsets(top: 0, left: 10, bottom: 20, right: 0)
         default:
             return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
@@ -168,7 +165,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         case Sections.Asset.rawValue:
             return CGSize(width: 360, height: 240)
         case Sections.Inquiry.rawValue:
-            return CGSize(width: UIScreen.screenWidth, height: 120)
+            return CGSize(width: collectionView.bounds.width, height: 140)
         default:
             return CGSize(width: 360, height: 240)
         }
@@ -177,5 +174,4 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 30
     }
-    
 }

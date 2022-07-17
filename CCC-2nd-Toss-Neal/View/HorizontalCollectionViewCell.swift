@@ -15,6 +15,8 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 120, height: 120)
         layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 15
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(InquiryCollectionViewCell.self, forCellWithReuseIdentifier: InquiryCollectionViewCell.identifier)
