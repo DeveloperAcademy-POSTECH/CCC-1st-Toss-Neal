@@ -18,7 +18,7 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(InquiryCollectionViewCell.self, forCellWithReuseIdentifier: InquiryCollectionViewCell.identifier)
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 20)
         
         return collectionView
     }()
@@ -41,7 +41,6 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
         
         inquiryCollectionView.backgroundColor = .tossBackgroundColor
         let inquiryCollectionViewConstraints = [
-//            inquiryCollectionView.centerXAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerXAnchor),
             inquiryCollectionView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 0),
             inquiryCollectionView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 20),
             inquiryCollectionView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: 0),
