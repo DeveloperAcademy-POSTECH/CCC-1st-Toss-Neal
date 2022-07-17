@@ -34,11 +34,17 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupColor()
         setupMainLayout()
+        setupProtocol()
         setupNavigationItem()
     }
     
     private func setupColor() {
         self.view.backgroundColor = .tossBackgroundColor
+    }
+    
+    private func setUpProtocol() {
+        assetCollectionView.delegate = self
+        assetCollectionView.dataSource = self
     }
     
     private func setupNavigationItem() {
@@ -48,12 +54,8 @@ class HomeViewController: UIViewController {
     
     private func setupMainLayout() {
         view.addSubview(assetCollectionView)
-//        view.addSubview(inquiryCollectionView)
 
-        assetCollectionView.delegate = self
-        assetCollectionView.dataSource = self
         assetCollectionView.frame = view.bounds
-        
         assetCollectionView.translatesAutoresizingMaskIntoConstraints = false
         assetCollectionView.layer.cornerRadius = 15.0
         assetCollectionView.backgroundColor = .tossBackgroundColor
