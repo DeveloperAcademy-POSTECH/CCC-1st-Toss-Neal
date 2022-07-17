@@ -10,7 +10,7 @@ reviewers:
 	- Jaeyong
 	- SanghyoKim
 	-	SH0123
-
+	- KimDaeSeong8721
 # A list of keywords to be skipped the process that add reviewers if pull requests include it 
 skipKeywords:
   - wip
