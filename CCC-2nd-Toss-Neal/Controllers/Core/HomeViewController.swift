@@ -23,16 +23,13 @@ class HomeViewController: UIViewController {
     
     private let assetCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 360, height: 240)
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 30
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(AssetCollectionViewCell.self, forCellWithReuseIdentifier: AssetCollectionViewCell.identifier)
         
         collectionView.register(HorizontalCollectionViewCell.self, forCellWithReuseIdentifier: HorizontalCollectionViewCell.identifier)
 
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-//        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
+//        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         return collectionView
     }()
     
@@ -58,20 +55,17 @@ class HomeViewController: UIViewController {
 
         assetCollectionView.delegate = self
         assetCollectionView.dataSource = self
-//        inquiryCollectionView.delegate = self
-//        inquiryCollectionView.dataSource = self
         assetCollectionView.frame = view.bounds
-//        inquiryCollectionView.frame = view.bounds
         
-//        assetCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        assetCollectionView.translatesAutoresizingMaskIntoConstraints = false
         assetCollectionView.layer.cornerRadius = 15.0
         assetCollectionView.backgroundColor = .tossBackgroundColor
         
         let assetCollectionViewConstraints = [
             assetCollectionView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            assetCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            assetCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
             assetCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            assetCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            assetCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
             assetCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ]
         NSLayoutConstraint.activate(assetCollectionViewConstraints)
@@ -154,6 +148,34 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         default:
             return UICollectionViewCell()
         }
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        switch section {
+        case Sections.Asset.rawValue:
+            return UIEdgeInsets(top: 10, left: 20, bottom: 0, right: 20)
+        case Sections.Inquiry.rawValue:
+            return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        default:
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch indexPath.section {
+        case Sections.Asset.rawValue:
+            return CGSize(width: 360, height: 240)
+        case Sections.Inquiry.rawValue:
+            return CGSize(width: UIScreen.screenWidth, height: 120)
+        default:
+            return CGSize(width: 360, height: 240)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 30
     }
     
 }
