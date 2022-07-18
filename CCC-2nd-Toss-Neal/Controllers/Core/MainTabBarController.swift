@@ -21,10 +21,16 @@ final class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        
+        setTabbarShape()
+        setViewItems()
+        setViewControllers([homeViewController, benefitViewController, transferViewController, stockViewController, totalViewController], animated: true)
+    }
+    
+    private func setViewItems() {
         homeViewController.tabBarItem.image = UIImage(systemName: "house")
         homeViewController.tabBarItem.title = "홈"
-
+        
         benefitViewController.tabBarItem.image = UIImage(systemName: "pentagon.fill")?.withHorizontallyFlippedOrientation()
         benefitViewController.tabBarItem.title = "혜택"
         
@@ -35,8 +41,18 @@ final class MainTabBarController: UITabBarController {
         stockViewController.tabBarItem.title = "주식"
         totalViewController.tabBarItem.image = UIImage(systemName: "line.3.horizontal")
         totalViewController.tabBarItem.title = "전체"
-        
+    }
+    
+    private func setTabbarShape() {
+        view.backgroundColor = .tossBackgroundColor
         tabBar.tintColor = .label
-        setViewControllers([homeViewController, benefitViewController, transferViewController, stockViewController, totalViewController], animated: true)
+        tabBar.backgroundColor = .white
+        
+//        Tabbar reverse corner radius
+//        https://stackoverflow.com/questions/61440924/how-can-i-create-a-rounded-tab-with-swift
+//      TODO: maskedCorners에 대해서 공부하기
+        tabBar.layer.cornerRadius = 30
+        tabBar.layer.masksToBounds = true
+        tabBar.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
 }
