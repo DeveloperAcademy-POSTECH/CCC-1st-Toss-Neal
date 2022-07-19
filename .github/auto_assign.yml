@@ -5,12 +5,12 @@ addReviewers: true
 addAssignees: true
 
 # A list of reviewers to be added to pull requests (GitHub user name)
-reviewers: 
+reviewers:
   - wody-d
-	- Jaeyong
-	- SanghyoKim
-	-	SH0123
-	- KimDaeSeong8721
+  - Jaeyong
+  - SanghyoKim
+  - SH0123
+  - KimDaeSeong8721
 # A list of keywords to be skipped the process that add reviewers if pull requests include it 
 skipKeywords:
   - wip
